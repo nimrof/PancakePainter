@@ -25,5 +25,8 @@ jobs:
           cd build
           grunt
       - uses: actions/upload-artifact@v3
+        name: linux installers
         with:
-          path: build/dist/*.deb
+          path: | 
+            build/dist/*.deb
+            build/dist/*.rpm
