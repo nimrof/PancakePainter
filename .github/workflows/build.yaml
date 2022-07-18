@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ 4.x }}
+          node-version: 4.x
       - uses: actions/checkout@v2
       - name: install deps
         run: |
