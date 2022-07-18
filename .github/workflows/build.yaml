@@ -19,11 +19,14 @@ jobs:
         run: |
           npm install --force
           cd build
-          npm install grunt-electron grunt-electron-installer-debian grunt-electron-installer-redhat
+          npm install
       - name: build
         run: |
           cd build
           grunt
+          dir
+          cd dist
+          dir
       - uses: actions/upload-artifact@v3
         name: installers
         with:
