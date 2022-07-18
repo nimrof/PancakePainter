@@ -30,7 +30,8 @@ jobs:
 
       - if: ${{ matrix.os }} == 'windows-latest'
         run: |
-          Get-ChildItem build/dist/*
+          Get-ChildItem build/dist/PancakePainter-win32-ia32/*
+          Get-ChildItem build/dist/PancakePainter-win32-x64/*
           Get-ChildItem build/dist/* | Rename-Item -NewName { $_.Name +  '.exe' }
 
       - uses: actions/upload-artifact@v3
