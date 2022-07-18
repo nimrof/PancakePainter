@@ -17,11 +17,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: install deps
         run: |
-          sudo apt-get install npm node-grunt-cli 
+          sudo apt-get install -y npm node-grunt-cli
     
           npm install --force
+          cd build
           npm install grunt-electron grunt-electron-installer-debian grunt-electron-installer-redhat
-
       - name: build
         run: |
-          grunt --base build
+          cd build
+          grunt
