@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
 #        os: [ubuntu-latest, windows-latest, macos-latest]
-        os: [windows-latest]        
+        os: [windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -25,8 +25,9 @@ jobs:
           cd build
           grunt
       - uses: actions/upload-artifact@v3
-        name: linux installers
+        name: installers
         with:
           path: | 
             build/dist/*.deb
             build/dist/*.rpm
+            build/dist/*.exe
