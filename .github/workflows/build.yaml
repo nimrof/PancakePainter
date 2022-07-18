@@ -29,7 +29,9 @@ jobs:
           dir
 
       - if: ${{ matrix.os }} == 'windows-latest'
-        run: Get-ChildItem build/* | Rename-Item -NewName { $_.Name +  '.exe' }
+        run: |
+          Get-ChildItem build/dist/*
+          Get-ChildItem build/dist/* | Rename-Item -NewName { $_.Name +  '.exe' }
 
       - uses: actions/upload-artifact@v3
         name: installers ${{ matrix.os }}
