@@ -14,6 +14,17 @@ jobs:
         os: [ubuntu-latest]        
     runs-on: ${{ matrix.os }}
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ 4.0 }}
+
+      - name: install deps
+        run: |
+          apt-get install npm node-grunt-cli 
+          npm install --force
+          npm install grunt-electron grunt-electron-installer-debian grunt-electron-installer-redhat
+          
+      - name: build
+        run: |
+          grunt --base build
